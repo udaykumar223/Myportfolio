@@ -1,0 +1,233 @@
+/* Custom Properties for Tech Theme */
+:root {
+    --bg-dark: #0a192f;
+    --bg-card: #112240;
+    --accent: #64ffda;
+    --text-main: #ccd6f6;
+    --text-dim: #8892b0;
+    --white: #e6f1ff;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.logo span { color: var(--accent); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.hero-content h4 { color: var(--accent); font-family: monospace; font-size: 1.2rem; margin-bottom: 1rem; }
+.hero-content h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--white); margin-bottom: 1rem; }
+.hero-content h2 { color: var(--text-dim); margin-bottom: 2rem; }
+.hero-content p { max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-dim); }
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+.btn.primary { border: 1px solid var(--accent); color: var(--accent); }
+.btn.primary:hover { background: rgba(100, 255, 218, 0.1); }
+.btn.secondary { background: var(--accent); color: var(--bg-dark); }
+
+/* Sections */
+.section { padding: 100px 2rem; max-width: 1000px; margin: 0 auto; }
+.section-title {
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.section-title::after {
+    content: "";
+    height: 1px;
+    width: 200px;
+    background: var(--bg-card);
+    margin-left: 20px;
+}
+
+/* Cards */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover { transform: translateY(-10px); }
+
+.project-tech { margin: 1rem 0; }
+.project-tech span {
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: var(--accent);
+    margin-right: 10px;
+}
+
+/* Contact Form */
+.contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: var(--bg-card);
+    border: 1px solid transparent;
+    color: white;
+    border-radius: 4px;
+}
+
+.contact-form input:focus { border-color: var(--accent); outline: none; }
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .contact-container { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 2.5rem; }
+}
+
+
+/* Container for the skill categories */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 2rem;
+}
+
+.skill-category {
+    background: rgba(17, 34, 64, 0.5); /* Semi-transparent navy */
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(100, 255, 218, 0.1); /* Subtle neon border */
+    transition: var(--transition);
+}
+
+.skill-category:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    background: rgba(17, 34, 64, 0.8);
+}
+
+.skill-category h3 {
+    color: var(--accent);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-family: monospace;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Individual Skill Badge Styling */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* This prevents the text from touching */
+}
+
+.skill-tags span {
+    background: rgba(10, 25, 47, 0.7);
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(136, 146, 176, 0.2);
+    transition: var(--transition);
+}
+
+.skill-tags span:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(100, 255, 218, 0.05);
+}
+
+/* Special highlight for Core Subjects */
+.skill-tags.highlight span {
+    font-weight: 700;
+}
